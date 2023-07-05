@@ -13,20 +13,24 @@ const MainContent = () => {
   const toggle=()=>{
     setDropDownOpen(!dropdownopen)
   }
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
+    setLoading(true);
     axios
       .get(
-        `https://newsapi.org/v2/top-headlines?category=${category}&apikey=51c48de17a6d487791a57610b06e4bee&page=1`
+        `https://newsapi.org/v2/top-headlines?category=${category}&apikey=d4da1cdbd7184241953bcaa69bbfc104&page=1`
       )
       .then((res) => {
         console.log(res);
         setNews(res.data.articles);
         console.log(news);
+        setLoading(false)
         })
       .catch(err=>{
         console.log(err)
+        setLoading(false)
       });
-  }, [category,news]);
+  }, [category]);
   const handleClick = () => {
      setCategory(dropdownvalue)
   };
@@ -74,7 +78,11 @@ const MainContent = () => {
           </Form>
         </p>
         
-        <AllNews news={news}/> 
+        {loading ? (
+        <p>Loading...</p> // Render a loading indicator when the data is being fetched
+      ) : (
+        news.length > 0 && <AllNews news={news} /> // Render the AllNews component when news is available
+      )}
       </Container>
     </div>
   );

@@ -8,7 +8,7 @@ const AllNews = (props) => {
             {   
             allnews.map((item)=>{
              return(
-                <NewsCard singlenews={item}/>
+                <NewsCard key={item.title} singlenews={item}/>
              )
             })
         }
