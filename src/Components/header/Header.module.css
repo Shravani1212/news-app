@@ -1,0 +1,12 @@
+.header-1{
+    margin-bottom: 10px;
+}
+.input1{
+    width: 100% !important; 
+    height: 38px;
+    border-radius: 4px;
+    padding: 4px 8px;
+}
+.navlink-1{
+    cursor: pointer;
+}

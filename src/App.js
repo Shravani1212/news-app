@@ -1,12 +1,11 @@
 // import logo from './logo.svg';
 import './App.css';
-import Dasboard from './components/Dasboard';
-// import NewsCard from './components/NewsCard';
 
+import NewsManager from './Components/NewsManager';
 function App() {
   return (
     <div className='App'>
-      <Dasboard/>
+      <NewsManager/>
     </div>
   );
 }
